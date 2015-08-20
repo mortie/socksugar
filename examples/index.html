@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SockSugar</title>
+	</head>
+	<body>
+		<input type="text" id="url" value="ws://localhost:8081">
+		<button id="connect">Connect</button>
+
+		<div id="message"></div>
+
+		<script src="../client.js"></script>
+
+		<script>
+			document.getElementById("connect").addEventListener("click", function() {
+				var url = document.getElementById("url").value;
+
+				//Create a new SockSugar socket
+				window.sock = new SockSugar(url);
+
+				window.sock.on("ready", function() {
+					document.getElementById("message").innerHTML =
+						"Connected! You can now play with the global "+
+						"'sock' object in a JavaScript console. "+
+						"Try doing <code>sock.send('myMsg', ...)</code>, "+
+						"or typing <code>send</code> in the server's console.";
+
+					//Listen to 'myEvent', which the server emits when you
+					//type 'say' in its console
+					sock.on("myEvent", function(data) {
+						console.log("Received myEvent from server!");
+						console.log(data);
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
+
