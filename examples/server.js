@@ -7,11 +7,12 @@ var server = new SockSugar({
 server.on("connection", function(sock) {
 	console.log("connection!");
 
-	sock.on("myMsg", function(req) {
+	sock.on("request", function(req) {
+		console.log("Request for "+req.url);
 		console.log(req.data);
 
 		req.reply({
-			foo: "bar"
+			msg:" Hello there!"
 		});
 	});
 });
@@ -24,7 +25,7 @@ process.stdin.on("data", function(data) {
 
 		server.socks.forEach(function(sock) {
 			sock.send("myEvent", {
-				msg: str.replace(/^\w+\s+/, "")
+				msg: str.replace(/^\w+\s+/, "").trim()
 			});
 		});
 	} else {
