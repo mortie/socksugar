@@ -1,6 +1,6 @@
 # SockSugar
 
-SocSugar is a rather simple library to simplify working with WebSockets. It makes WebSockets work somewhat like regular HTTP requests.
+SockSugar is a rather simple library to simplify working with WebSockets. It makes WebSockets work somewhat like regular HTTP requests.
 
 ## Usage
 
