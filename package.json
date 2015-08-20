@@ -1,14 +1,22 @@
 {
   "name": "socksugar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Websockets with sugar on top.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Martin Dørum Nygaard",
+  "author": {
+    "name": "Martin Dørum Nygaard",
+    "email": "martid0311@gmail.com",
+    "url": "http://mort.coffee"
+  },
   "license": "MIT",
   "dependencies": {
     "ws": "^0.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.mort.coffee/mort/socksugar"
   }
 }
