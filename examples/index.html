@@ -31,6 +31,11 @@
 						console.log("Received myEvent from server!");
 						console.log(data);
 					});
+
+					sock.on("close", function() {
+						document.getElementById("message").innerHTML =
+							"Connection closed!";
+					});
 				});
 			});
 		</script>

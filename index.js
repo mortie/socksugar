@@ -41,6 +41,10 @@ var util = require("util");
 	function Socket(websock) {
 		this._websock = websock;
 
+		websock.on("close", function() {
+			this.emit("close");
+		}.bind(this));
+
 		websock.on("message", function(msg) {
 			var obj;
 			try {
@@ -79,6 +83,12 @@ var util = require("util");
 		wss.on("connection", function(websock) {
 			var sock = new Socket(websock);
 			this.socks.push(sock);
+			var i = this.socks.length - 1;
+
+			sock.on("close", function() {
+				this.socks.splice(i, 1);
+			}.bind(this));
+
 
 			this.emit("connection", sock);
 		}.bind(this));

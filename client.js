@@ -9,6 +9,10 @@
 			this.emit("ready");
 		}.bind(this);
 
+		this._sock.onclose = function(evt) {
+			this.emit("close");
+		}.bind(this);
+
 		this._sock.onmessage = function(evt) {
 			var obj = JSON.parse(evt.data);
 
