@@ -40,10 +40,17 @@ var util = require("util");
 //Socket {
 	function Socket(websock) {
 		this._websock = websock;
+		this._ready = false;
 
 		websock.on("close", function() {
+			this._ready = false;
 			this.emit("close");
 		}.bind(this));
+
+		websock.on("ready", function() {
+			this._ready = true;
+			this.emit("ready");
+		});
 
 		websock.on("message", function(msg) {
 			var obj;
