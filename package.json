@@ -1,6 +1,6 @@
 {
   "name": "socksugar",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Websockets with sugar on top.",
   "main": "index.js",
   "scripts": {

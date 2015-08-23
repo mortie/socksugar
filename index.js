@@ -24,7 +24,7 @@ var util = require("util");
 		this._replied = true;
 	}
 
-	Request.prototype.error = function(msg) {
+	Request.prototype.fail = function(msg) {
 		if (this._replied)
 			throw new Error("Already replied.");
 
