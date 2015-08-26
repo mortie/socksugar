@@ -69,7 +69,8 @@ var util = require("util");
 
 	//Generic internal send function
 	Socket.prototype._send = function(data) {
-		this._websock.send(JSON.stringify(data));
+		if (this._ready)
+			this._websock.send(JSON.stringify(data));
 	}
 
 	//Trigger event on the client
