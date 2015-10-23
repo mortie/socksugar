@@ -23,7 +23,7 @@ On the server side:
 			console.log("Request for "+req.url);
 			console.log(req.data);
 
-			req.respond({
+			req.reply({
 				msg: "No."
 			});
 		});
