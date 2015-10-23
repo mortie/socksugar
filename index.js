@@ -22,7 +22,7 @@ var util = require("util");
 		});
 
 		this._replied = true;
-	}
+	};
 
 	Request.prototype.fail = function(msg) {
 		if (this._replied)
@@ -34,13 +34,13 @@ var util = require("util");
 		});
 
 		this._replied = true;
-	}
+	};
 //}
 
 //Socket {
 	function Socket(websock) {
 		this._websock = websock;
-		this._ready = false;
+		this._ready = true;
 
 		websock.on("close", function() {
 			this._ready = false;
@@ -71,7 +71,7 @@ var util = require("util");
 	Socket.prototype._send = function(data) {
 		if (this._ready)
 			this._websock.send(JSON.stringify(data));
-	}
+	};
 
 	//Trigger event on the client
 	Socket.prototype.send = function(name, data) {
@@ -79,7 +79,7 @@ var util = require("util");
 			evt: name,
 			d: data
 		});
-	}
+	};
 //}
 
 //module.exports {
@@ -100,6 +100,6 @@ var util = require("util");
 
 			this.emit("connection", sock);
 		}.bind(this));
-	}
+	};
 	util.inherits(module.exports, events.EventEmitter);
 //}
