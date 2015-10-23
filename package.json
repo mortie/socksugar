@@ -1,6 +1,6 @@
 {
   "name": "socksugar",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Websockets with sugar on top.",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://git.mort.coffee/mort/socksugar"
+    "url": "https://github.com/mortie/socksugar"
   }
 }
